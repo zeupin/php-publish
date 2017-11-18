@@ -38,8 +38,20 @@ class PhpCodeClean
      */
     public function __construct()
     {
-        $this->pathignores[__FILE__] = true;
+        // 显示版权信息
+        $this->copyright();
 
+        // 把当前文件加入到路径忽略列表中
+        $this->pathignores[__FILE__] = true;
+    }
+
+
+    /**
+     * 显示版权信息
+     */
+    public function copyright()
+    {
+        // 输出版权信息
         $version = self::VERSION;
         echo <<<EOT
 
@@ -127,12 +139,6 @@ EOT;
     public function ignoreFile($file)
     {
         $this->fileignores[$file] = true;
-    }
-
-
-    protected function doesIgnore($file)
-    {
-        return (array_key_exists($file, $this->ignores));
     }
 
 
