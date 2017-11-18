@@ -39,18 +39,33 @@ class PhpCodeClean
     public function __construct()
     {
         $this->pathignores[__FILE__] = true;
+
+        $version = self::VERSION;
+        echo <<<EOT
+
+=================================================================
+PHP Code Clean (ver.$version)
+Copyright (c) Zeupin LLC. (http://zeupin.com)
+Licensed under The MIT License.
+Redistributions of files MUST retain the above copyright notice.
+WARNING: WITHOUT WARRANTY OF ANY KIND!!!
+=================================================================
+
+EOT;
     }
 
 
     public function clean($dir)
     {
         if (!file_exists($dir) || !is_dir($dir)) {
-            echo "目录不存在 {$dir}" . PHP_EOL;
+            echo "Directory '{$dir}' not found.\n";
             die();
         }
 
         $dir = realpath($dir);
         $this->scan($dir);
+
+        echo "\nPHP Code Clean done!\n";
     }
 
 
@@ -242,6 +257,5 @@ $codeclean = new \Zeupin\PhpCodeClean();
 $codeclean->ignoreFile('.git');
 if (mb_substr(__DIR__, -5) === '--dev') {
     $target = mb_substr(__DIR__, 0, -5);
-    $codeclean->clean(__DIR__);
+    $codeclean->clean($target);
 }
-
