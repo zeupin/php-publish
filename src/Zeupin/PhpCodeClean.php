@@ -128,6 +128,7 @@ EOT;
     public function ignorePath($path)
     {
         $this->pathignores[$path] = true;
+        return $this;
     }
 
 
@@ -139,6 +140,7 @@ EOT;
     public function ignoreFile($file)
     {
         $this->fileignores[$file] = true;
+        return $this;
     }
 
 

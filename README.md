@@ -1,6 +1,6 @@
-# php-publish
+# PHP Code Clean
 
-`php-publish` 是一个PHP的发布工具，它的主要目的是清除待发布的PHP文件中的注释。
+`Zeupin\PhpCodeClean` 是一个PHP的代码清理工具，它可以清理PHP文件中的特定部分，比如各种注释，尽可能精简php执行文件。
 
 ## 功能
 
@@ -10,13 +10,35 @@
 
 ## 使用
 
-1. 下载 `php-publish.php` 文件。
+1. 下载 `phpcodeclean.php` 文件。
 
-2. 把 `php-publish.php` 放到需要清理的文件夹下。
+**直接下载**
+
+<https://github.com/zeupin/phpcodeclean/>
+
+**Composer**
+
+```bash
+composer require zeupin/phpcodeclean
+```
+
+2. 写个简单的处理脚本。
+
+```php
+// 引用进来
+require 'path/to/phpcodeclean.php';
+
+// 执行
+$codeclean = new \Zeupin\PhpCodeClean();
+$codeclean->ignoreFile('.git');
+$target = '设置你要处理的目录';
+$codeclean->clean($target);
+```
 
 3. 运行
+
 ```bash
-php php-publish.php
+php phpcodeclean.php
 ```
 
 ## 警告
