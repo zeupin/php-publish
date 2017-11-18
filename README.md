@@ -10,11 +10,11 @@
 
 ## 使用
 
-### 1. 下载 `phpcodeclean.php` 文件。
+### 1. 下载 `PhpCodeClean.php` 文件。
 
 **直接下载**
 
-<https://github.com/zeupin/phpcodeclean/>
+<https://github.com/zeupin/phpcodeclean/blob/master/src/Zeupin/PhpCodeClean.php>
 
 **Composer**
 
