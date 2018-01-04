@@ -259,11 +259,3 @@ EOT;
         file_put_contents("$file", implode('', $output));
     }
 }
-
-// 开始执行，扫描文件所在目录
-$codeclean = new \Zeupin\PhpCodeClean();
-$codeclean->ignoreFile('.git');
-if (mb_substr(__DIR__, -5) === '--dev') {
-    $target = mb_substr(__DIR__, 0, -5);
-    $codeclean->clean($target);
-}
